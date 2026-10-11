@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+- Keep shared website navigation and contact actions in reusable components; content sections use individual TanStack routes for independently shareable pages.
+- Keep replaceable content images in a central content module using imported assets or asset pointers so imagery can be changed independently of layout.

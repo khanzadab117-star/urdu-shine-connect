@@ -1,0 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router';
+import { ContactBand } from '@/components/site';
+import { pageHead } from '@/lib/site-content';
+export const Route = createFileRoute('/about')({ head: () => pageHead('ہمارے بارے میں | پروفیسر عامل سلیمان شاہ', 'پروفیسر عامل سلیمان شاہ سے اسلامی روحانی رہنمائی اور زندگی کے اہم معاملات پر مشاورت کے لیے رابطہ کریں۔'), component: AboutPage });
+function AboutPage() { return <main><section className="content-page"><div className="eyebrow">ABOUT PROFESSOR AAMIL SULEMAN SHAH</div><h1 className="urdu">پروفیسر عامل سلیمان شاہ کے بارے میں</h1><div className="about-content urdu"><p>اسلامی روحانی رہنمائی، استخارہ اور زندگی کے اہم معاملات میں مشاورت کے لیے پروفیسر عامل سلیمان شاہ سے رابطہ کریں۔</p><p>ازدواجی معاملات، گھریلو مسائل، رشتوں اور کاروباری معاملات میں رہنمائی حاصل کرنے کے لیے فون یا واٹس ایپ کے ذریعے اپنا معاملہ بیان کریں۔</p><h2>آن لائن مشاورت</h2><p>آن لائن رابطے کی سہولت کے ذریعے آپ جہاں بھی ہوں، مشاورت کے لیے رابطہ کر سکتے ہیں۔</p></div></section><ContactBand /></main>; }

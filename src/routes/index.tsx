@@ -1,24 +1,13 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from '@tanstack/react-router';
+import { BookOpen, MessageCircle, ShieldCheck, ArrowUpLeft } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { ContactButtons, ContactBand, SectionHeading, ServiceGrid } from '@/components/site';
+import { features, pageHead, site } from '@/lib/site-content';
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
-export const Route = createFileRoute("/")({
+export const Route = createFileRoute('/')({
+  head: () => pageHead('پروفیسر عامل سلیمان شاہ | اسلامی روحانی رہنمائی', 'استخارہ، ازدواجی معاملات، گھریلو مسائل اور آن لائن روحانی مشاورت کے لیے پروفیسر عامل سلیمان شاہ سے رابطہ کریں۔'),
   component: Index,
 });
-
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
-  return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
-  );
+  return <main><section className="home-hero"><a href={site.whatsapp} target="_blank" rel="noopener noreferrer" aria-label="Consult Professor Aamil Suleman Shah on WhatsApp"><img className="banner" src={site.banner} width={1536} height={768} alt="روحانی علاج — پروفیسر عامل سلیمان شاہ" fetchPriority="high" /></a><div className="hero-caption"><div className="eyebrow"><span />IN THE LIGHT OF QURAN & SUNNAH<span /></div><h1 className="urdu">اسلامی روحانی رہنمائی</h1><p className="urdu">زندگی کے اہم معاملات میں قرآن و سنت کی روشنی میں رہنمائی حاصل کریں۔</p><p className="supporting urdu">استخارہ، ازدواجی معاملات، گھریلو مسائل اور دیگر زندگی کے معاملات میں آن لائن مشاورت کے لیے رابطہ کریں۔</p><ContactButtons /></div></section><div className="trust-strip"><div><BookOpen /><span className="urdu">قرآن و سنت کی روشنی میں</span></div><div><ShieldCheck /><span className="urdu">ذاتی معاملات میں مشاورت</span></div><div><MessageCircle /><span className="urdu">آن لائن رابطے کی سہولت</span></div></div><section className="features"><SectionHeading eyebrow="A PATH TO GUIDANCE" title="آپ کی زندگی، آپ کے اہم معاملات" description="ہر معاملے میں سوچ سمجھ کر، رہنمائی کے ساتھ آگے بڑھیں۔" />{features.map((feature, i) => <article className="feature" key={feature.title}><div className="feature-image"><img src={feature.image} alt={feature.title} loading="lazy" width={1280} height={720} /><span className="feature-number">0{i + 1}</span></div><div className="feature-copy"><div className="eyebrow">{feature.label}</div><h3 className="urdu">{feature.title}</h3><p className="urdu">{feature.description}</p><ContactButtons call={i === 3} /></div></article>)}</section><section className="services-section"><div className="section-inner"><SectionHeading eyebrow="OUR SERVICES" title="ہماری خدمات" description="زندگی کے مختلف معاملات کے لیے روحانی رہنمائی اور مشاورت" /><ServiceGrid /></div></section><section className="about-preview"><SectionHeading eyebrow="ABOUT" title="پروفیسر عامل سلیمان شاہ کے بارے میں" /><p className="urdu">اسلامی روحانی رہنمائی، استخارہ اور زندگی کے اہم معاملات میں مشاورت کے لیے پروفیسر عامل سلیمان شاہ سے رابطہ کریں۔ اپنے معاملے پر بات کرنے کے لیے فون اور واٹس ایپ کی سہولت دستیاب ہے۔</p><Button variant="goldOutline" asChild><Link to="/about"><ArrowUpLeft /><span className="urdu">مزید جانیں</span></Link></Button></section><ContactBand /></main>;
 }
